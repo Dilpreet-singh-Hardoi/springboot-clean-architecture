@@ -4,11 +4,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.Builder;
 
 @Builder
 @Getter
@@ -16,6 +17,7 @@ import lombok.Builder;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "users") // <- safe table name
 public class User {
 
     @Id
@@ -26,4 +28,3 @@ public class User {
 
     private String email;
 }
-
