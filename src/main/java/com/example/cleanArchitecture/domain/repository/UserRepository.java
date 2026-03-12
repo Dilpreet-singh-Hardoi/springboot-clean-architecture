@@ -1,6 +1,6 @@
-package com.example.cleanarchitecture.domain.repository;
+package com.example.cleanArchitecture.domain.repository;
 
-import com.example.cleanarchitecture.domain.entity.User;
+import com.example.cleanArchitecture.domain.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

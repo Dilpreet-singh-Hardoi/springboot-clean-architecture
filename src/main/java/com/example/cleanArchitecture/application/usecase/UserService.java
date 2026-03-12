@@ -1,7 +1,7 @@
-package com.example.cleanarchitecture.application.usecase;
+package com.example.cleanArchitecture.application.usecase;
 
-import com.example.cleanarchitecture.domain.entity.User;
-import com.example.cleanarchitecture.domain.repository.UserRepository;
+import com.example.cleanArchitecture.domain.entity.User;
+import com.example.cleanArchitecture.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

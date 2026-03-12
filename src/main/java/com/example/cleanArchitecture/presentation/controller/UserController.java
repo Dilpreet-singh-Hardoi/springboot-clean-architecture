@@ -1,11 +1,13 @@
-package com.example.cleanarchitecture.presentation.controller;
+package com.example.cleanArchitecture.presentation.controller;
 
-import com.example.cleanarchitecture.application.usecase.UserService;
-import com.example.cleanarchitecture.domain.entity.User;
+import com.example.cleanArchitecture.application.usecase.UserService;
+import com.example.cleanArchitecture.domain.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import com.example.cleanArchitecture.presentation.dto.UserRequestDTO;
+import com.example.cleanArchitecture.presentation.dto.UserResponseDTO;
+import jakarta.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -15,9 +17,25 @@ public class UserController {
 
     private final UserService userService;
 
+
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        return ResponseEntity.ok(userService.createUser(user));
+    public ResponseEntity<UserResponseDTO> createUser(
+            @Valid @RequestBody UserRequestDTO request) {
+
+        User user = User.builder()
+                .name(request.getName())
+                .email(request.getEmail())
+                .build();
+
+        User savedUser = userService.createUser(user);
+
+        UserResponseDTO response = UserResponseDTO.builder()
+                .id(savedUser.getId())
+                .name(savedUser.getName())
+                .email(savedUser.getEmail())
+                .build();
+
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/{id}")

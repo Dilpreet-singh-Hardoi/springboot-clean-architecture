@@ -1,4 +1,4 @@
-package com.example.cleanarchitecture.presentation.dto;
+package com.example.cleanArchitecture.presentation.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -9,11 +9,13 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserDTO {
+public class UserRequestDTO {
+
     @NotBlank(message = "Name is required")
     private String name;
 
-    @Email(message = "Email should be valid")
+    @Email(message = "Invalid email")
     @NotBlank(message = "Email is required")
     private String email;
+
 }
